@@ -28,6 +28,8 @@ public class Cake {
             case "CHOCOLATE": return 100;
             case "VANILLA": return 70;
             case "RED VELVET": return 130;
+            case "STRAWBERRY": return 110;
+            case "LEMON": return 80;
             default: return 0.0;
         }
     }
@@ -43,19 +45,21 @@ public class Cake {
 
     public double calculateToppingsPrice() {
         switch (toppings) {
+            case "SPRINKLES": return 20;
             case "FRESH FRUIT": return 80;
             case "CHOCOLATE CHIPS": return 50;
-            case "MACARONS": return 120;
+            case "COOKIES": return 60;
             default: return 0.0;
         }
     }
 
     public double calculateShapePrice() {
         switch (shape) {
-            case "ROUND": return 0;
             case "SQUARE": return 20;
             case "HEART": return 40;
-            default: return 0.0;
+            case "STAR": return 80;
+            case "FLOWER": return 100;
+            default: return 0.0; // ROUND shape
         }
     }
 
@@ -64,6 +68,7 @@ public class Cake {
             case "SMALL": return 100;
             case "MEDIUM": return 180;
             case "LARGE": return 280;
+            case "EXTRA-LARGE": return 350;
             default: return 0.0;
         }
     }

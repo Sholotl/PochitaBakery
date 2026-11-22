@@ -19,4 +19,8 @@ public class Order {
         this.deliveryDate = deliveryDate;
         this.status = "PENDING";
     }
+
+    public double getTotalPrice() {
+        return cake.calculateTotalPrice();
+    }
 }
