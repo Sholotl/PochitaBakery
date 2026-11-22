@@ -1,32 +1,18 @@
 Backend - java
 frontend - javaSript
 
-Cada elemento del sistema debe poderse modificar.
+**Cake**
+Holds the custom details of each order (flavor, cover, toppings, shape, size and floors). Each attribute has its own price method, and `calculateTotalPrice()` adds them up to get the final price.
 
+**Customer**
+Stores the info of the person placing the order, like name and phone number. It's mostly a data class, so it only needs a constructor and getters (and setters if the info can be updated).
 
-1. Pastel: Contiene los elementos personalizados de cada orden y es donde 
-se calcula el precio final.
-2. Cliente: Guarda los datos de quien ordena (como el nombre o el teléfono) 
-y, en general, es un objeto que tiene órdenes asociadas. La verdad no estoy 
-del todo seguro de cómo funcionaría esta clase, ya que no tiene métodos como 
-tal, sino que sirve únicamente para guardar información. ¿Qué métodos podría 
-tener?
-3. Orden: Es la clase que asocia al cliente con el pastel. Llevaría datos 
-como la fecha y... ya, no veo otro atributo útil. Tal vez el precio, para 
-guardarlo como un atributo propio (algo como "costo total"), aunque no sé 
-qué tan buena idea sea. Quizá convenga más que esta clase solo asocie al 
-cliente con el pastel y nada más, sin métodos públicos; algo como crear 
-un Map (diccionario) o una estructura similar para relacionar al cliente 
-con la orden.
-4. Pochita: Sería únicamente la clase de gestión, por lo que no debería 
-contener lógica de negocio como tal. Se puede ver como una clase temporal 
-mientras aún no existe el frontend, o bien como el lugar que centraliza las 
-llamadas y donde se pondrían los endpoints para hacer la conexión más 
-fácilmente.
+**Order**
+Links a customer with a cake and stores the order date. It doesn't keep its own price: when needed, it asks the cake for the total, so the price is always calculated in one place.
 
-Estos son mis pensamientos sobre las cuatro clases que planteo para este 
-backend sencillo. Cabe destacar que ya no considero agregar una base de 
-datos con archivos CSV; ahora sería mejor centrarse en terminar las clases 
-principales. El frontend se haría con JavaScript, lo que haría que el 
-proyecto pase de ser una app a una página web. Creo que esto sería mejor, 
-ya que trabajaríamos en el desarrollo web de un gestor para una pastelería.
+**Pochita**
+The management class. It has no business logic, it only centralizes the calls to the other classes (creating customers, cakes and orders). For now it works as a temporary entry point, and later it's where the endpoints will connect to the frontend.
+
+## Project scope
+
+The backend focuses on the four core classes above, with no database for now. The frontend will be built with JavaScript, turning the project into a web page for managing a bakery.

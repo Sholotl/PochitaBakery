@@ -1,16 +1,85 @@
-public class Cake{
+/*
+This class calculates the price of a cake based on its flavor, cover, toppings,
+shape, size and floors. Each attribute has its own price method, and
+calculateTotalPrice() adds them all up to get the final price.
+*/
+
+public class Cake {
     String flavor;
     String cover;
     String toppings;
-    String Shape;
+    String shape;
+    String size;
     int floors;
-    
 
+    public Cake(String flavor, String cover, String toppings,
+                String shape, String size, int floors) {
+
+        this.flavor = flavor;
+        this.cover = cover;
+        this.toppings = toppings;
+        this.shape = shape;
+        this.size = size;
+        this.floors = floors;
+    }
+
+    public double calculateFlavorPrice() {
+        switch (flavor) {
+            case "CHOCOLATE": return 100;
+            case "VANILLA": return 70;
+            case "RED VELVET": return 130;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateCoverPrice() {
+        switch (cover) {
+            case "WHIPPED CREAM": return 80;
+            case "BUTTERCREAM": return 110;
+            case "FONDANT": return 150;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateToppingsPrice() {
+        switch (toppings) {
+            case "FRESH FRUIT": return 80;
+            case "CHOCOLATE CHIPS": return 50;
+            case "MACARONS": return 120;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateShapePrice() {
+        switch (shape) {
+            case "ROUND": return 0;
+            case "SQUARE": return 20;
+            case "HEART": return 40;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateSizePrice() {
+        switch (size) {
+            case "SMALL": return 100;
+            case "MEDIUM": return 180;
+            case "LARGE": return 280;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateFloorsPrice() {
+        switch (floors) {
+            case 1: return 0;
+            case 2: return 100;
+            case 3: return 200;
+            default: return 0.0;
+        }
+    }
+
+    public double calculateTotalPrice() {
+        return calculateFlavorPrice() + calculateCoverPrice() + calculateToppingsPrice()
+                + calculateShapePrice() + calculateSizePrice() + calculateFloorsPrice();
+    }
 }
 
-/*
-Esta clase debería funcionar para calcular el precio del pastel tomando en 
-cuenta sus características. Por lo tanto, cada color, atributo, cobertura, 
-sabor, etc., debe tener ligado un precio y, al final, un método para 
-calcular el total.
-*/
