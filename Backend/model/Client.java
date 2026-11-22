@@ -1,3 +1,4 @@
+package model;
 /*
 This class stores the basic data of a client: id, name and phone number.
 It does not know anything about cakes or orders, an order links to a client

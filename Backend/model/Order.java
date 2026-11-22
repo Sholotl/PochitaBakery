@@ -1,3 +1,4 @@
+package model;
 /*
 This class links a client with a cake. The price is not 
 stored: getTotalPrice() asks the cake for it, so the 

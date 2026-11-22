@@ -1,3 +1,4 @@
+package model;
 /*
 This class calculates the price of a cake based on its flavor, cover, toppings,
 shape, size and floors. Each attribute has its own price method, and
