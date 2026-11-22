@@ -1,0 +1,32 @@
+Backend - java
+frontend - javaSript
+
+Cada elemento del sistema debe poderse modificar.
+
+
+1. Pastel: Contiene los elementos personalizados de cada orden y es donde 
+se calcula el precio final.
+2. Cliente: Guarda los datos de quien ordena (como el nombre o el teléfono) 
+y, en general, es un objeto que tiene órdenes asociadas. La verdad no estoy 
+del todo seguro de cómo funcionaría esta clase, ya que no tiene métodos como 
+tal, sino que sirve únicamente para guardar información. ¿Qué métodos podría 
+tener?
+3. Orden: Es la clase que asocia al cliente con el pastel. Llevaría datos 
+como la fecha y... ya, no veo otro atributo útil. Tal vez el precio, para 
+guardarlo como un atributo propio (algo como "costo total"), aunque no sé 
+qué tan buena idea sea. Quizá convenga más que esta clase solo asocie al 
+cliente con el pastel y nada más, sin métodos públicos; algo como crear 
+un Map (diccionario) o una estructura similar para relacionar al cliente 
+con la orden.
+4. Pochita: Sería únicamente la clase de gestión, por lo que no debería 
+contener lógica de negocio como tal. Se puede ver como una clase temporal 
+mientras aún no existe el frontend, o bien como el lugar que centraliza las 
+llamadas y donde se pondrían los endpoints para hacer la conexión más 
+fácilmente.
+
+Estos son mis pensamientos sobre las cuatro clases que planteo para este 
+backend sencillo. Cabe destacar que ya no considero agregar una base de 
+datos con archivos CSV; ahora sería mejor centrarse en terminar las clases 
+principales. El frontend se haría con JavaScript, lo que haría que el 
+proyecto pase de ser una app a una página web. Creo que esto sería mejor, 
+ya que trabajaríamos en el desarrollo web de un gestor para una pastelería.
