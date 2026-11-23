@@ -6,12 +6,12 @@ calculateTotalPrice() adds them all up to get the final price.
 */
 
 public class Cake {
-    String flavor;
-    String cover;
-    String toppings;
-    String shape;
-    String size;
-    int floors;
+    private final String flavor;
+    private final String cover;
+    private final String toppings;
+    private final String shape;
+    private final String size;
+    private final int floors;
 
     public Cake(String flavor, String cover, String toppings,
                 String shape, String size, int floors) {
@@ -24,23 +24,45 @@ public class Cake {
         this.floors = floors;
     }
 
+    public String getFlavor() {
+        return flavor;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public String getToppings() {
+        return toppings;
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public int getFloors() {
+        return floors;
+    }
+
     public double calculateFlavorPrice() {
         switch (flavor) {
-            case "CHOCOLATE": return 100;
-            case "VANILLA": return 70;
-            case "RED VELVET": return 130;
-            case "STRAWBERRY": return 110;
             case "LEMON": return 80;
-            default: return 0.0;
+            case "CHOCOLATE": return 100;
+            case "STRAWBERRY": return 110;
+            case "RED VELVET": return 130;
+            default: return 70; // VANILLA flavor
         }
     }
 
     public double calculateCoverPrice() {
         switch (cover) {
-            case "WHIPPED CREAM": return 80;
             case "BUTTERCREAM": return 110;
             case "FONDANT": return 150;
-            default: return 0.0;
+            default: return 80; // WHIPPED CREAM cover
         }
     }
 
@@ -66,20 +88,18 @@ public class Cake {
 
     public double calculateSizePrice() {
         switch (size) {
-            case "SMALL": return 100;
             case "MEDIUM": return 180;
             case "LARGE": return 280;
             case "EXTRA-LARGE": return 350;
-            default: return 0.0;
+            default: return 100; // SAMLL size
         }
     }
 
     public double calculateFloorsPrice() {
         switch (floors) {
-            case 1: return 0;
             case 2: return 100;
             case 3: return 200;
-            default: return 0.0;
+            default: return 0; // 1 floor
         }
     }
 
@@ -88,4 +108,3 @@ public class Cake {
                 + calculateShapePrice() + calculateSizePrice() + calculateFloorsPrice();
     }
 }
-
