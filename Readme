@@ -1,0 +1,36 @@
+# PochitaBakery
+
+## Estructura del backend
+
+```text
+Backend/
+├── controller/
+│   └── PochitaController.java
+├── data/
+│   ├── pochita.db
+│   └── pochita.sql
+├── model/
+│   ├── Cake.java
+│   ├── Client.java
+│   └── Order.java
+├── repository/
+│   └── PochitaRepository.java
+└── service/
+    └── PochitaBakery.java
+```
+
+### Paquetes y clases
+
+- **`controller/PochitaController.java`**: reservado para recibir y atender las solicitudes de la aplicación. Actualmente solo declara el paquete; todavía no implementa endpoints ni comunicación con el frontend.
+- **`model/Cake.java`**: representa la configuración de un pastel (sabor, cubierta, toppings, forma, tamaño y pisos). Calcula el precio de cada opción y el precio total.
+- **`model/Client.java`**: representa a un cliente con su identificador, nombre y teléfono.
+- **`model/Order.java`**: representa un pedido asociado a un cliente y un pastel. Guarda la fecha de entrega y el estado; obtiene el precio total a partir del pastel.
+- **`repository/PochitaRepository.java`**: espacio previsto para las operaciones de persistencia y acceso a la base de datos. El archivo está vacío por ahora.
+- **`service/PochitaBakery.java`**: espacio previsto para la lógica de gestión de pedidos. Actualmente contiene un método `addOrder()` sin implementar; las demás operaciones aparecen descritas como comentarios en el archivo.
+
+### Datos
+
+- **`data/pochita.sql`**: define las tablas `clients` y `orders`, su relación y restricciones para los pisos y estados permitidos.
+- **`data/pochita.db`**: archivo de base de datos SQLite del proyecto.
+
+La aplicación también incluye el controlador JDBC de SQLite en `lib/sqlite-jdbc-3.54.1.0.jar`.

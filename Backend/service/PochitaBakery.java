@@ -1,23 +1,38 @@
 package service;
-/*
-Esta clase se supone que gestiona los elementos a directametne 
-la base de datos. Debería tener los metodos de "Agregar orden", 
-"Eliminar Orden", "cambiar el estado de la orden", "Modificar 
-los datos de la orden", etc. Esto es buena idea para esta clase?
-Creo que aqui es donde se entregaría el json del front.
 
-Métodos de PochitaBakery
-addOrder: crear una orden
-deleteOrder: eliminar una orden
-updateOrder: modificar pastel y fecha
-getOrderById: ver una orden
-getOrdersByClient: ver el historial de un cliente
-changeStatus(orderId, newStatus): método que recibe COMPLETED o CANCELLED.
-*/
+import model.Cake;
+import model.Client;
+import model.Order;
+import repository.PochitaRepository;
 
 public class PochitaBakery {
 
-    public void addOrder(){
-        
+    private final PochitaRepository repository;
+
+    public PochitaBakery(PochitaRepository repository) {
+        this.repository = repository;
+    }
+
+    public Client addClient(String name, String phone) {
+
+        if (name == null || name.isBlank() || phone == null || phone.isBlank()) 
+            {throw new IllegalArgumentException("Nombre y teléfono son obligatorios.");}
+
+        if (repository.clientExists(name.trim(), phone.trim())) 
+            {throw new IllegalArgumentException("Ese cliente ya está registrado.");}
+
+        return repository.insertClient(name.trim(), phone.trim());
+    }
+
+    public Order addOrder(int clientId, Cake cake, String deliveryDate) {
+        Client client = repository.findClientById(clientId);
+
+        if (client == null) 
+            { throw new IllegalArgumentException("Ese ID no coincide con ningún cliente."); }
+
+        if (cake.getFloors() < 1 || cake.getFloors() > 3) 
+            { throw new IllegalArgumentException("Los pisos deben ser entre 1 y 3.");}
+
+        return repository.insertOrder(client, cake, deliveryDate);
     }
 }
