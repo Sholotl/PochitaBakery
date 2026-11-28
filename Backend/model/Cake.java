@@ -91,7 +91,7 @@ public class Cake {
             case "MEDIUM": return 180;
             case "LARGE": return 280;
             case "EXTRA-LARGE": return 350;
-            default: return 100; // SAMLL size
+            default: return 100; // SMALL size
         }
     }
 

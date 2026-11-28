@@ -20,6 +20,10 @@ public class Order {
         this.deliveryDate = deliveryDate;
         this.status = status;
     }
+    
+    public double getTotalPrice() {
+        return cake.calculateTotalPrice();
+    }
 
     public int getId() {
         return id;
@@ -43,9 +47,5 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public double getTotalPrice() {
-        return cake.calculateTotalPrice();
     }
 }
